@@ -6,6 +6,7 @@ import AddUserForm from './forms/AddUserForm'
 import EditUserForm from './forms/EditUserForm'
 import UserTable from './tables/UserTable'
 import { User } from './User';
+import { Container, Row, Col } from 'reactstrap'
 
 const App = () => {
   // Data
@@ -47,10 +48,10 @@ const App = () => {
   }
 
   return (
-    <div className="container">
+    <Container>
       <h1>CRUD App with Hooks</h1>
-      <div className="flex-row">
-        <div className="flex-large">
+      <Row>
+        <Col lg="6">
           {editing ? (
             <Fragment>
               <h2>Edit user</h2>
@@ -67,13 +68,13 @@ const App = () => {
               <AddUserForm addUser={addUser} />
             </Fragment>
           )}
-        </div>
-        <div className="flex-large">
+        </Col>
+        <Col lg="6">
           <h2>View users</h2>
           <UserTable users={users} editRow={editRow} deleteUser={deleteUser} />
-        </div>
-      </div>
-    </div>
+        </Col>
+      </Row>
+    </Container>
   )
 }
 

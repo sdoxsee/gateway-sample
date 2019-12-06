@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { User } from '../User'
+import { Form, Label, Input, Button, FormGroup } from 'reactstrap'
 
 interface Props {
   addUser: (user: User) => void
@@ -19,7 +20,7 @@ const AddUserForm = (props: Props) => {
   }
 
   return (
-    <form
+    <Form
       onSubmit={event => {
         event.preventDefault()
         if (!user.name || !user.username) return
@@ -28,12 +29,14 @@ const AddUserForm = (props: Props) => {
         setUser(initialFormState)
       }}
     >
-      <label>Name</label>
-      <input type="text" name="name" value={user.name} onChange={handleInputChange} />
-      <label>Username</label>
-      <input type="text" name="username" value={user.username} onChange={handleInputChange} />
-      <button>Add new user</button>
-    </form>
+      <FormGroup>
+        <Label>Name</Label>
+        <Input type="text" name="name" value={user.name} onChange={handleInputChange} />
+        <Label>Username</Label>
+        <Input type="text" name="username" value={user.username} onChange={handleInputChange} />
+      </FormGroup>
+      <Button color="primary">Add new user</Button>
+    </Form>
   )
 }
 

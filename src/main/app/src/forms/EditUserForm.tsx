@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { User } from '../User'
+import { Form, Label, Input, Button, FormGroup } from 'reactstrap'
 
 interface Props {
   currentUser: User,
@@ -29,22 +30,24 @@ const EditUserForm = (props: Props) => {
   }
 
   return (
-    <form
+    <Form
       onSubmit={event => {
         event.preventDefault()
 
         props.updateUser(user.id, user)
       }}
     >
-      <label>Name</label>
-      <input type="text" name="name" value={user.name} onChange={handleInputChange} />
-      <label>Username</label>
-      <input type="text" name="username" value={user.username} onChange={handleInputChange} />
-      <button>Update user</button>
-      <button onClick={() => props.setEditing(false)} className="button muted-button">
+      <FormGroup>
+        <Label>Name</Label>
+        <Input type="text" name="name" value={user.name} onChange={handleInputChange} />
+        <Label>Username</Label>
+        <Input type="text" name="username" value={user.username} onChange={handleInputChange} />
+      </FormGroup>
+      <Button color="primary">Update user</Button>{' '}
+      <Button color="secondary" onClick={() => props.setEditing(false)} className="button muted-button">
         Cancel
-      </button>
-    </form>
+      </Button>
+    </Form>
   )
 }
 

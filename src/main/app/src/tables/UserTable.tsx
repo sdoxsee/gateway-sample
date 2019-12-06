@@ -1,5 +1,6 @@
 import React from 'react'
 import { User } from '../User'
+import { Table, Button } from 'reactstrap'
 
 interface Props {
   users: User[];
@@ -8,7 +9,7 @@ interface Props {
 }
 
 const UserTable = (props: Props) => (
-  <table>
+  <Table hover responsive>
     <thead>
       <tr>
         <th>Name</th>
@@ -23,20 +24,18 @@ const UserTable = (props: Props) => (
             <td>{user.name}</td>
             <td>{user.username}</td>
             <td>
-              <button
+              <Button color="secondary"
                 onClick={() => {
                   props.editRow(user)
                 }}
-                className="button muted-button"
               >
                 Edit
-              </button>
-              <button
+              </Button>{' '}
+              <Button color="danger"
                 onClick={() => props.deleteUser(user.id)}
-                className="button muted-button"
               >
                 Delete
-              </button>
+              </Button>
             </td>
           </tr>
         ))
@@ -46,7 +45,7 @@ const UserTable = (props: Props) => (
         </tr>
       )}
     </tbody>
-  </table>
+  </Table>
 )
 
 export default UserTable
