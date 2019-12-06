@@ -17,6 +17,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
+		<!-- how versions were picked: https://nodejs.org/en/download/releases/ -->
 		<nodeVersion>v10.17.0</nodeVersion>
 		<npmVersion>6.11.3</npmVersion>
 		<frontend-maven-plugin.version>1.8.0</frontend-maven-plugin.version>
