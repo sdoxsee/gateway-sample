@@ -1,0 +1,28 @@
+server:
+  port: 8080
+ui:
+  port: ${server.port}
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          login-client:
+            provider: keycloak
+            client-id: web_app
+            client-secret: web_app
+            scope: openid,profile,email
+        provider:
+          keycloak:
+            issuer-uri: http://stephens-macbook-pro.local:9080/auth/realms/jhipster
+#            issuer-uri: http://localhost:9080/auth/realms/jhipster
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: resource
+#          uri: http://localhost:9000
+#          predicates:
+#            - Path=/resource
+#          filters:
+#            - TokenRelay=
+#            - RemoveRequestHeader=Cookie
